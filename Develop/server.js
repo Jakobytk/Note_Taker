@@ -21,9 +21,47 @@ app.get('/notes', (req, res) =>
     res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
-app.get('/api/notes', (req, res) => 
-    
-);
+app.get('/api/notes', (req, res) => {
+  console.info(`${req.method} request received`);
+
+  const { title, text } = req.body;
+  
+  if (title, text) {
+    const newReview = {
+      title,
+      text
+    };
+
+    fs.readFile('./db/db.json', (err, data) => {
+      if (err) {
+        console.error(err);
+      } else {
+        const parsedReviews = JSON.parse(data);
+        parsedReviews.push(newReview);
+
+        fs.writeFile(
+          './db/db.json',
+          JSON.stringify(parsedReviews),
+          (writeErr) =>
+            writeErr
+              ? console.error(writeErr)
+              : console.info('Successful')
+        );
+      }
+    });
+
+    const response = {
+      status: 'success',
+      body: newReview,
+    };
+
+    console.log(response);
+    res.status(201).json(response);
+  } else {
+    res.status(500).json('Error');
+  }
+});
+
 
 // app.post('/notes', (req, res) => 
 //     res.sendFile(path.join(__dirname, '/public/notes.html'))
