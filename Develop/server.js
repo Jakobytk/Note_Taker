@@ -41,9 +41,7 @@ app.post('/api/notes', (req, res) => {
         if (err) {
           console.error(err);
         } else {
-          
           const parsedReviews = JSON.parse(data);
-  
           parsedReviews.push(newReview);
   
           fs.writeFile(
@@ -56,21 +54,10 @@ app.post('/api/notes', (req, res) => {
           );
         }
       });
-  
-      const response = {
-        status: 'success',
-        body: newReview,
-      };
-  
-      console.log(response);
-      res.status(201).json(response);
-    } else {
-      res.status(500).json('Error in posting review');
-    }
-  });
+  }});
 
 // app.get('/api/notes', (req, res) => 
-    
+//     res.sendFile(path.join(__dirname, 'public/notes.html'))
 // );
 
 // app.delete('/notes', (req, res) => 
