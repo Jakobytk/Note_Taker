@@ -10,7 +10,7 @@
 
 ## Usage
 
-Follow link https://jakobytk.github.io/Note_Taker/ to access website!
+Follow link [https://jakobytk.github.io/Note_Taker/](https://jakobytk.github.io/Note_Taker/) to access website!
 
 ## Images
 
