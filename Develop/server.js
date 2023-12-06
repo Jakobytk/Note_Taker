@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 // const db = require('./db/db.json');
-// const api = require('./public/assets/js/index');
+// const api = require('./public/assets/js/index.js');
 const fs = require('fs');
 const uuid = require('./public/helpers/uuid')
 
@@ -42,6 +42,7 @@ app.post('/api/notes', (req, res) => {
           console.error(err);
         } else {
           const parsedReviews = JSON.parse(data);
+          
           parsedReviews.push(newReview);
   
           fs.writeFile(

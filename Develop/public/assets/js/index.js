@@ -4,7 +4,6 @@ let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
-const window = globalThis
 
 if (window.location.pathname === '/notes') {
   noteForm = document.querySelector('.note-form');
